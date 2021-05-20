@@ -1,0 +1,20 @@
+{
+    "navbar":{
+        "sidebar_title":"সাইডবার শিরোনাম{{username}}",
+        "sidebar_title_help":"সাইডবার শিরোনাম হেল্প",
+        "Sign in":"সাইন ইন করুন",
+        "Your Account":"আপনার অ্যাকাউন্ট",
+        "HELP & SETTINGS":"সহায়তা ও সেটিং",
+        "Hello,Sign in":"হ্যালো, সাইন ইন করুন",
+        "All":"সব",
+        "Smartphone":"স্মার্টফোন",
+        "Kitchen Hardware":"রান্নাঘর হার্ডওয়্যার",
+        "Book":"বই",
+        "Signin":"সাইন ইন করুন",
+        "New customer? ":"নতুন গ্রাহক?",
+        "Start here":"এখান থেকে শুরু কর"
+
+
+
+    }
+}

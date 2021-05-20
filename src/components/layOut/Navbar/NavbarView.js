@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import "./bootstrap-drawer.min.css";
 import "./bootstrap.min.css";
 export default function NavbarView(props) {
-  const { t, rtl } = props;
+  const { t, i18n } = props;
+  console.log(t("navbar.sidebar_title", { username: " Ramesh Lal Das" }));
+  console.log(i18n.languages[0]);
   return (
     <React.Fragment>
       {/* <!-- Navbar Starts --> */}
@@ -214,7 +216,7 @@ export default function NavbarView(props) {
                     />
                     <label className="custom-control-label" htmlFor="urduLang">
                       <img
-                        src="assets/img/flag/urdu.svg"
+                        src="assets/img/flag/hindi.svg"
                         alt="uk flag"
                         width="50"
                         height="30"
