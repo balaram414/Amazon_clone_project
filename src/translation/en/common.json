@@ -1,18 +1,18 @@
 {
     "navbar":{
-        "sidebar_title":"",
-        "sidebar_title_help":"",
-        "Sign in":"",
-        "Your Account":"",
-        "HELP & SETTINGS":"",
-        "Hello,Sign in":"",
-        "All":"",
-        "Smartphone":"",
-        "Kitchen Hardware":"",
-        "Book":"",
-        "Signin":"",
-        "New customer? ":"",
-        "Start here":""
+        "sidebar_title":"Sidebar Title",
+        "sidebar_title_help":"Sidebar Title Help",
+        "Sign in":"Sign in",
+        "Your Account":"our Account",
+        "HELP & SETTINGS":"HELP & SETTINGS",
+        "Hello,Sign in":"Hello,Sign in",
+        "All":"All",
+        "Smartphone":"Smartphone",
+        "Kitchen Hardware":"Kitchen Hardware",
+        "Book":"Book",
+        "Signin":"Signin",
+        "New customer? ":"New customer?",
+        "Start here":"Start here"
 
 
 

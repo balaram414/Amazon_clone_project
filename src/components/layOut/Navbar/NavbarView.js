@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import "./bootstrap-drawer.min.css";
 import "./bootstrap.min.css";
 export default function NavbarView(props) {
-  const { t, i18n } = props;
-  console.log(t("navbar.sidebar_title", { username: " Ramesh Lal Das" }));
-  console.log(i18n.languages[0]);
+  const { t } = props;
+
   return (
     <React.Fragment>
       {/* <!-- Navbar Starts --> */}
@@ -34,19 +33,22 @@ export default function NavbarView(props) {
             <div className="drawer-header bg-dark text-white">
               <h4 className="drawer-title mx-auto" id="drawer-demo-title">
                 <i className="fas fa-user-circle"></i>
-                Hello, Sign In
+                {t("navbar.sidebar_title")}
               </h4>
             </div>
             <div className="drawer-body">
-              <h6 className="text-muted text-uppercase">Help & Settings</h6>
+              <h6 className="text-muted text-uppercase">
+                {" "}
+                {t("navbar.HELP & SETTINGS")}
+              </h6>
               <a
                 href="your_account.html"
                 className="btn btn-outline-success my-2 btn-sm"
               >
-                You Account
+                {t("navbar.Your Account")}
               </a>
               <a href="login.html" className="btn btn-warning my-2  btn-sm">
-                Sign in
+                {t("navbar.Sign in")}
               </a>
             </div>
             <div className="drawer-footer">
@@ -85,7 +87,12 @@ export default function NavbarView(props) {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {/* <!-- Search Bar Starts --> */}
-          <form className="form-inline px-lg-5" noValidate method="get">
+          <form
+            className="form-inline px-lg-5"
+            onSubmit={props.handleSearch}
+            noValidate
+            method="get"
+          >
             <div className="input-group">
               <div className="input-group-prepend">
                 <div className="dropdown">
@@ -98,26 +105,56 @@ export default function NavbarView(props) {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    All
+                    {t(props.productCategory[props.selectedCat])}
                   </button>
                   <div
                     className="dropdown-menu"
                     aria-labelledby="btnCategoryDropdownMenu"
                   >
-                    <a className="dropdown-item" href="#">
-                      All
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => {
+                        props.handleCatChange(e, 0);
+                      }}
+                    >
+                      {t("navbar.All")}
                     </a>
-                    <a className="dropdown-item" href="#">
-                      Smartphone
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => {
+                        props.handleCatChange(e, 1);
+                      }}
+                    >
+                      {t("navbar.Smartphone")}
                     </a>
-                    <a className="dropdown-item" href="#">
-                      Kitchen Hardware
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => {
+                        props.handleCatChange(e, 2);
+                      }}
+                    >
+                      {t("navbar.Kitchen Hardware")}
                     </a>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => {
+                        props.handleCatChange(e, 3);
+                      }}
+                    >
                       Prime Deals
                     </a>
-                    <a className="dropdown-item" href="#">
-                      Book
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => {
+                        props.handleCatChange(e, 4);
+                      }}
+                    >
+                      {t("navbar.Book")}
                     </a>
                   </div>
                 </div>
@@ -128,12 +165,15 @@ export default function NavbarView(props) {
                 size="50"
                 name="query"
                 id="query"
+                onChange={props.handleQuaryChange}
+                value={props.query}
               />
               <input
                 type="text"
                 name="category"
                 id="category"
                 value="book"
+                value={props.selectedCat}
                 hidden
               />
               <div className="input-group-append">
@@ -171,7 +211,8 @@ export default function NavbarView(props) {
                       name="prefLang"
                       id="englishLang"
                       value="en"
-                      onChange={props.handleChangeLang}
+                      onClick={props.handleChangeLang}
+                      checked={props.prefLang == "en" ? true : false}
                     />
                     <label
                       className="custom-control-label"
@@ -179,7 +220,7 @@ export default function NavbarView(props) {
                     >
                       <img
                         src="assets/img/flag/english.svg"
-                        alt="uk flag"
+                        alt="English"
                         width="50"
                         height="30"
                       />
@@ -193,36 +234,19 @@ export default function NavbarView(props) {
                       name="prefLang"
                       id="hindiLang"
                       value="in"
-                      onChange={props.handleChangeLang}
+                      onClick={props.handleChangeLang}
+                      checked={props.prefLang == "in" ? true : false}
                     />
                     <label className="custom-control-label" htmlFor="hindiLang">
                       <img
                         src="assets/img/flag/hindi.svg"
-                        alt="uk flag"
+                        alt="Hindi"
                         width="50"
                         height="30"
                       />
                     </label>
                   </div>
-                  <div className="dropdown-divider"></div>
-                  <div className="custom-control custom-radio mb-2">
-                    <input
-                      className="custom-control-input"
-                      type="radio"
-                      name="prefLang"
-                      id="urduLang"
-                      value="pk"
-                      onChange={props.handleChangeLang}
-                    />
-                    <label className="custom-control-label" htmlFor="urduLang">
-                      <img
-                        src="assets/img/flag/hindi.svg"
-                        alt="uk flag"
-                        width="50"
-                        height="30"
-                      />
-                    </label>
-                  </div>
+
                   <div className="dropdown-divider"></div>
                   <div className="custom-control custom-radio">
                     <input
@@ -231,15 +255,16 @@ export default function NavbarView(props) {
                       name="prefLang"
                       id="banglaLang"
                       value="bd"
-                      onChange={props.handleChangeLang}
+                      onClick={props.handleChangeLang}
+                      checked={props.prefLang == "bd" ? true : false}
                     />
                     <label
                       className="custom-control-label"
-                      htmlFor="banglaLang"
+                      htmlFor="BanglaLang"
                     >
                       <img
                         src="assets/img/flag/bangla.svg"
-                        alt="uk flag"
+                        alt="Bengali"
                         width="50"
                         height="30"
                       />
@@ -269,10 +294,11 @@ export default function NavbarView(props) {
                     href="login.html"
                     className="btn btn-warning w-75 btn-sm font-weight-bold"
                   >
-                    Signin
+                    {t("navbar.Signin")}
                   </a>
                   <small>
-                    New customer?<a href="register.html"> Start here.</a>
+                    {t("navbar.New customer? ")}
+                    <a href="register.html"> {t("navbar.Start here")}</a>
                   </small>
                 </div>
               </div>

@@ -10,7 +10,7 @@ import common_in from "./translation/in/common.json";
 i18next.init({
   whitelist: ["in", "en", "bd"],
   interpolation: { escapeValue: false },
-  lng: "bd",
+  lng: "en",
   resources: {
     en: {
       common: common_en,
