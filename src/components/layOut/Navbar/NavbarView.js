@@ -47,9 +47,9 @@ export default function NavbarView(props) {
               >
                 {t("navbar.Your Account")}
               </a>
-              <a href="login.html" className="btn btn-warning my-2  btn-sm">
+              <Link to="/login" className="btn btn-warning my-2  btn-sm">
                 {t("navbar.Sign in")}
-              </a>
+              </Link>
             </div>
             <div className="drawer-footer">
               <button
@@ -65,14 +65,14 @@ export default function NavbarView(props) {
         </div>
         {/* <!-- Drawer Ends --> */}
 
-        <a className="navbar-brand pl-2" href="navbar.html">
+        <Link className="navbar-brand pl-2" to="/">
           <img
             src="assets/img/amazon_logo_white.png"
             height="30"
             width="100"
             alt="amazon logo white"
           />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -290,12 +290,12 @@ export default function NavbarView(props) {
               </a>
               <div className="dropdown-menu px-3" aria-labelledby="userAccount">
                 <div className="d-flex flex-column justify-content-center">
-                  <a
-                    href="login.html"
+                  <Link
+                    to="/login"
                     className="btn btn-warning w-75 btn-sm font-weight-bold"
                   >
                     {t("navbar.Signin")}
-                  </a>
+                  </Link>
                   <small>
                     {t("navbar.New customer? ")}
                     <a href="register.html"> {t("navbar.Start here")}</a>
