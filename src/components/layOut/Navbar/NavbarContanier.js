@@ -7,6 +7,7 @@ class NavbarContanier extends Component {
     this.state = {
       prefLang: props.i18n.languages[0],
       selectedCat: 0,
+      datachange: 0,
       productCategory: [
         "navbar.All",
         "navbar.Smartphone",
@@ -29,14 +30,18 @@ class NavbarContanier extends Component {
   };
 
   handleQuaryChange = (event) => {
+    alert([event.target.value]);
     this.setState({ query: [event.target.value] });
   };
   handleSearch = (event) => {
     event.preventDefault();
-    console.log("Query: " + this.state.query);
-    console.log("Select Category: " + this.state.selectedCat);
+    console.log("Query:................ " + this.state.query);
+    console.log(
+      "Select Category:.......................... " + this.state.selectedCat
+    );
   };
   render() {
+    console.log("render test...");
     return (
       <div>
         <NavbarView

@@ -298,7 +298,7 @@ export default function NavbarView(props) {
                   </Link>
                   <small>
                     {t("navbar.New customer? ")}
-                    <a href="register.html"> {t("navbar.Start here")}</a>
+                    <Link to="/register"> {t("navbar.Start here")}</Link>
                   </small>
                 </div>
               </div>

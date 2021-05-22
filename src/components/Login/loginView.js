@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function loginView(props) {
   return (
     <div>
@@ -80,9 +80,9 @@ export default function loginView(props) {
             {/*<!-- OR Seperator -->*/}
             <hr className="hr-text" data-content="New to Amazon?" />
             {/* <!-- Create account button -->*/}
-            <a href="register.html" className="btn btn-dark btn-sm w-100 mt-2">
+            <Link to="/register" className="btn btn-dark btn-sm w-100 mt-2">
               Create your Amazon account
-            </a>
+            </Link>
             <a href="#" className="btn btn-outline-success btn-sm w-100 mt-2">
               <i className="fab fa-google"></i> Sign in with Google
             </a>
